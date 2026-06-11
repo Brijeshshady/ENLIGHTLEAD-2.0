@@ -116,47 +116,48 @@
             </div>
         </div>
         <!-- Hero Illustration (Right Panel Reveal + Glassmorphic elements) -->
-        <div class="relative h-[400px] sm:h-[480px] lg:h-[600px] w-full mt-12 lg:mt-0 perspective-1000 reveal-right flex items-center justify-center lg:block">
-            <!-- Scaling wrapper to prevent mobile overflow -->
-            <div class="relative w-[480px] h-[480px] scale-[0.58] min-[375px]:scale-[0.68] sm:scale-[0.85] lg:scale-100 origin-center lg:origin-top-right transition-transform duration-300 lg:absolute lg:top-0 lg:right-0">
-                <!-- Abstract vertical lines background -->
-                <div class="absolute inset-0 right-0 w-3/4 h-full overflow-hidden opacity-50 rounded-3xl" style="background: repeating-linear-gradient(to right, transparent, transparent 10px, #e2e8f0 10px, #e2e8f0 11px);"></div>
-                <div class="absolute inset-0 right-0 w-3/4 h-full bg-gradient-to-r from-transparent to-white/80 rounded-3xl z-0"></div>
-                
-                <!-- Main Glass Dashboard Chart -->
-                <div class="absolute top-6 right-6 w-[400px] h-[330px] glass-card rounded-[2rem] p-6 z-10 floating bg-white/40 backdrop-blur-2xl border-white/30 shadow-2xl glow-card">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-semibold text-lg text-gray-800">Course Completion Rate</h3>
-                        <div class="flex gap-1">
-                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
-                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
-                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
-                        </div>
-                    </div>
-                    <div class="inline-block px-3 py-1 rounded-full bg-gray-100 text-xs text-gray-600 mb-8">
-                        Monthly
-                    </div>
-                    <!-- Faux Bar Chart -->
-                    <div class="flex items-end gap-3 h-40 mt-4 relative">
-                        <div class="w-full bg-gray-200 rounded-t-lg h-[30%] relative group"></div>
-                        <div class="w-full bg-gray-200 rounded-t-lg h-[40%] relative group"></div>
-                        <div class="w-full bg-gray-200 rounded-t-lg h-[60%] relative group"></div>
-                        <div class="w-full bg-purple-500 rounded-t-lg h-[90%] relative group">
-                            <!-- Tooltip -->
-                            <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs py-1 px-2 rounded-lg opacity-100 whitespace-nowrap">
-                                85% Rate
-                            </div>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-t-lg h-[50%] relative group"></div>
-                        <div class="w-full bg-gray-200 rounded-t-lg h-[70%] relative group"></div>
-                        <div class="w-full bg-gray-200 rounded-t-lg h-[45%] relative group"></div>
-                    </div>
-                    <div class="flex justify-between text-xs text-gray-400 mt-2 px-1">
-                        <span class="">Jan</span><span class="">Feb</span><span class="">Mar</span><span class="text-purple-600 font-bold">Apr</span><span class="">May</span><span class="">Jun</span><span class="">Jul</span>
+        <div class="relative w-full mt-12 lg:mt-0 perspective-1000 reveal-right flex flex-col sm:flex-row lg:block lg:h-[600px] items-center justify-center gap-6">
+            <!-- Abstract vertical lines background (desktop only) -->
+            <div class="hidden lg:block absolute inset-0 right-0 w-3/4 h-full overflow-hidden opacity-50 rounded-3xl" style="background: repeating-linear-gradient(to right, transparent, transparent 10px, #e2e8f0 10px, #e2e8f0 11px);"></div>
+            <div class="hidden lg:block absolute inset-0 right-0 w-3/4 h-full bg-gradient-to-r from-transparent to-white/80 rounded-3xl z-0"></div>
+            
+            <!-- Main Glass Dashboard Chart -->
+            <div class="relative lg:absolute lg:top-6 lg:right-6 w-full max-w-[400px] h-[330px] glass-card rounded-[2rem] p-6 z-10 floating bg-white/40 backdrop-blur-2xl border-white/30 shadow-2xl glow-card">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-semibold text-lg text-gray-800">Course Completion Rate</h3>
+                    <div class="flex gap-1">
+                        <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                        <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                        <span class="w-2 h-2 rounded-full bg-red-400"></span>
                     </div>
                 </div>
+                <div class="inline-block px-3 py-1 rounded-full bg-gray-100 text-xs text-gray-600 mb-8">
+                    Monthly
+                </div>
+                <!-- Faux Bar Chart -->
+                <div class="flex items-end gap-3 h-40 mt-4 relative">
+                    <div class="w-full bg-gray-200 rounded-t-lg h-[30%] relative group"></div>
+                    <div class="w-full bg-gray-200 rounded-t-lg h-[40%] relative group"></div>
+                    <div class="w-full bg-gray-200 rounded-t-lg h-[60%] relative group"></div>
+                    <div class="w-full bg-purple-500 rounded-t-lg h-[90%] relative group">
+                        <!-- Tooltip -->
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs py-1 px-2 rounded-lg opacity-100 whitespace-nowrap">
+                            85% Rate
+                        </div>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-t-lg h-[50%] relative group"></div>
+                    <div class="w-full bg-gray-200 rounded-t-lg h-[70%] relative group"></div>
+                    <div class="w-full bg-gray-200 rounded-t-lg h-[45%] relative group"></div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400 mt-2 px-1">
+                    <span class="">Jan</span><span class="">Feb</span><span class="">Mar</span><span class="text-purple-600 font-bold">Apr</span><span class="">May</span><span class="">Jun</span><span class="">Jul</span>
+                </div>
+            </div>
+            
+            <!-- Mobile/Tablet container for floating side cards to stay aligned -->
+            <div class="flex flex-col gap-6 w-full max-w-[400px] sm:max-w-none sm:w-auto lg:contents">
                 <!-- Floating Top Student Card -->
-                <div class="absolute top-32 left-[-10px] w-60 glass-card rounded-2xl p-4 z-20 flex items-center justify-between shadow-2xl floating-delayed bg-white/40 backdrop-blur-2xl border-white/30 glow-card">
+                <div class="relative lg:absolute lg:top-32 lg:left-[-10px] w-full sm:w-64 glass-card rounded-2xl p-4 z-20 flex items-center justify-between shadow-2xl floating-delayed bg-white/40 backdrop-blur-2xl border-white/30 glow-card">
                     <div class="flex items-center gap-3">
                         <img alt="Profile" class="w-10 h-10 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQL8COUeTqfwL5EA1m5BsFis2WcQtpS_kMb5oRlV4DW5sZDrS3HIJ0S9KowYdgyHM3yok_FfJ1G8s2m299Q-na-RdFFjMeJpEQmENYdnpar2C47s0GAEv_V7-BrtvQy2RT4x6zdQHHFYjP0bkNqeHBUpJlKtfVtuaTMr0lsi7W0RmnFdbonsWLoz-eQDgKw6Dj7foeEvtqRrn7rH11wEnmca8WQFF239OsHaj3tbX0tmADE0xgAliRVFQb_Zstyiu5-QJslLzc1UM">
                         <div>
@@ -167,7 +168,7 @@
                     <button class="px-3 py-1 bg-white rounded-full text-xs font-semibold text-purple-600 shadow-sm border border-gray-100 hover:scale-105 transition-transform">View</button>
                 </div>
                 <!-- Floating Balance Card with Radial Loading SVG -->
-                <div class="absolute bottom-10 left-10 w-76 glass-card rounded-3xl p-6 z-20 shadow-2xl floating bg-white/40 backdrop-blur-2xl border-white/30 glow-card counter-trigger">
+                <div class="relative lg:absolute lg:bottom-10 lg:left-10 w-full sm:w-80 glass-card rounded-3xl p-6 z-20 shadow-2xl floating bg-white/40 backdrop-blur-2xl border-white/30 glow-card counter-trigger">
                     <div class="flex items-center justify-between gap-4">
                         <div>
                             <div class="text-xs text-gray-500 mb-1">Learning Score</div>
