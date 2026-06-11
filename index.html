@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Enlightlead - SAP Training Platform</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-900 antialiased relative">
+
+<!-- Background Blobs -->
+<div class="blob-purple top-[-20%] left-[-10%]"></div>
+<div class="blob-blue top-[10%] right-[-10%]"></div>
+
+<!-- BEGIN: Header -->
+<div class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/75 border-b border-gray-200/50 transition-all duration-300">
+    <header class="container mx-auto px-6 py-4 flex items-center justify-between relative reveal-on-scroll">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-xl">
+                E
+            </div>
+            <span class="text-xl font-bold tracking-tight">Enlightlead</span>
+        </div>
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+            <a class="text-gray-900 hover:text-purple-600 transition-colors hover:scale-105" href="#">Home</a>
+            <a class="hover:text-purple-600 transition-colors hover:scale-105" href="#">Features</a>
+            <a class="hover:text-purple-600 transition-colors hover:scale-105" href="#">Pricing</a>
+            <a class="hover:text-purple-600 transition-colors hover:scale-105" href="#">Blog</a>
+        </nav>
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center gap-4">
+            <a class="text-sm font-medium text-gray-700 hover:text-gray-900 px-4 py-2 hover:scale-105 transition-transform" href="#">Log In</a>
+            <a class="text-sm font-medium text-white px-6 py-2.5 rounded-full gradient-bg hover:opacity-90 transition-opacity flex items-center gap-2 shadow-lg shadow-purple-500/30 btn-hover-glow" href="#">
+                Book a Demo
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+            </a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="block md:hidden text-gray-600 hover:text-purple-600 focus:outline-none transition-colors" aria-label="Toggle navigation">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path id="hamburger-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </header>
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-md px-6 py-4 transition-all duration-300">
+        <nav class="flex flex-col gap-4 text-sm font-medium text-gray-600 mb-6">
+            <a class="text-gray-900 hover:text-purple-600 transition-colors" href="#">Home</a>
+            <a class="hover:text-purple-600 transition-colors" href="#">Features</a>
+            <a class="hover:text-purple-600 transition-colors" href="#">Pricing</a>
+            <a class="hover:text-purple-600 transition-colors" href="#">Blog</a>
+        </nav>
+        <div class="flex flex-col gap-4">
+            <a class="text-sm font-medium text-gray-700 hover:text-gray-900 py-2 text-center" href="#">Log In</a>
+            <a class="text-sm font-medium text-white px-6 py-2.5 rounded-full gradient-bg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-lg shadow-purple-500/30 btn-hover-glow" href="#">
+                Book a Demo
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- END: Header -->
+
+<!-- BEGIN: Hero Section -->
+<main class="container mx-auto px-6 pt-8 pb-12 lg:pt-12 lg:pb-24 relative z-10 overflow-hidden">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Hero Content (Left Panel Reveal) -->
+        <div class="max-w-xl reveal-left">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 text-xs font-bold tracking-wide uppercase mb-8 border border-purple-200">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                TAKE CONTROL OF YOUR FUTURE
+            </div>
+            <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-gray-900 tracking-tight">
+                Master SAP.<br>Lead Your<br><span id="typewriter-text" class="typewriter-cursor text-gradient">Career</span>
+            </h1>
+            <p class="text-lg text-gray-500 mb-10 leading-relaxed pr-8">
+                Turn aspiring SAP professionals into job-ready experts. Join the training ecosystem designed by industry veterans.
+            </p>
+            <div class="flex flex-wrap items-center gap-4 mb-12">
+                <a class="px-8 py-4 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition-all flex items-center gap-2 shadow-xl shadow-purple-500/30 text-lg btn-hover-glow" href="#">
+                    Book a Demo
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </a>
+                <a class="px-8 py-4 rounded-full bg-white border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 transition-all flex items-center gap-2 text-lg shadow-sm hover:scale-105" href="#">
+                    Learn More
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </a>
+            </div>
+            <!-- Social Proof (with Count-Up triggers) -->
+            <div class="flex items-center gap-4 counter-trigger">
+                <div class="flex -space-x-3">
+                    <img alt="User 1" class="w-10 h-10 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV8jWOsj2X-NspLx27buT2Webz8iHZzIn0KPXV3GCTUZl1gvPHwug_-bHyxmpQ5CPr7982hxJ1E8ZOAsrLYRVrip7RFj-W8ECgXB74eCP6vKtL8DmuypQm_zASIaygOUm4WUx8sRJHoxuzlhq5TK8I7HRzOKzr_2ilj8FSNX_8EsMCUcog0H_Uq5awo1z-alpBq4NK8a5AS8EEew5EFUfbYfmT6feLGOlYmj-aoKiCNlv7RDpADov6fDxIeTu5c5KhAxBAgoMiNxo">
+                    <img alt="User 2" class="w-10 h-10 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeDCtrvVPaxINqrOUCe_s_OpIaiG6hTZ6Ah8dglz9i73SyeySk8Zld45u9KyDjOf7gPI_DdnkztA66CLgfXTePzmZOBGf8myBJBpTOG9SJMyfQytGTCcK-HPfp4z3JIgkcaDo0GaZq1suWDjY3Ow1rCCnsSIWu7ozngOrHL-v6g8gKps7l0H0WBieafRqGhyTjTZ7iMuVanTS62WX-T9-iCi-0BwPVdVFeK5oglwfAOm12S7pK2ROoA50jzaYWvdUrrye1XrtZdgo">
+                    <img alt="User 3" class="w-10 h-10 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mWLEPE70LGDY7IAlqtPm6VQH3E3q9Rvx220vpM7kkOli_nzve0haGo1SH7mwrc1Z1iJKn1uQi3--7QYNoHgxBoXLDbr-cVxkm7d96Mp5R2YESvmCR_KXlWTMaIVrC70zg17F6pF0mzNlbj7317HL7M4sZwX74gyhJJdeSu5qdflmjuvTvEx14KAkCYlaJTd2qJJfEeGteJXG9gQtjF73Ip-dFPRCArUzSrvKsHFzifHMwg-ROQ_EqrGPIxd9ONtHNiGf2iT3Ofo">
+                    <img alt="User 4" class="w-10 h-10 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEro5iSj2OO0O9SK7MILSqXyfbdHqTC5IcG2a40un7jC9jnMLCY-7qrrb2mQpD9jEGi7IC-lvP-W1EBgM2ItIDqythG9Z4hSf1ihfv4ebiHk0CP34RaIMRP9i_UrpJSaY9xdSRQUpUHPoArRSEkSBXi_inLMyjb0kjwqZuvzUqW_rLb2MtNJx6X9uSEP6FkWb-yspTDkAOXupauVsDhRvqJ4wo3C3pdOZMQckb0F9enasFEq-OLu3hJoaUPm2GtFC2IBZKippEc6o">
+                </div>
+                <div>
+                    <div class="font-bold text-gray-900 text-xl"><span class="counter-stat" data-target="100">0</span>k +</div>
+                    <div class="text-sm text-gray-500">Trusted users worldwide</div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Illustration (Right Panel Reveal + Glassmorphic elements) -->
+        <div class="relative h-[400px] sm:h-[480px] lg:h-[600px] w-full mt-12 lg:mt-0 perspective-1000 reveal-right flex items-center justify-center lg:block">
+            <!-- Scaling wrapper to prevent mobile overflow -->
+            <div class="relative w-[480px] h-[480px] scale-[0.58] min-[375px]:scale-[0.68] sm:scale-[0.85] lg:scale-100 origin-center lg:origin-top-right transition-transform duration-300 lg:absolute lg:top-0 lg:right-0">
+                <!-- Abstract vertical lines background -->
+                <div class="absolute inset-0 right-0 w-3/4 h-full overflow-hidden opacity-50 rounded-3xl" style="background: repeating-linear-gradient(to right, transparent, transparent 10px, #e2e8f0 10px, #e2e8f0 11px);"></div>
+                <div class="absolute inset-0 right-0 w-3/4 h-full bg-gradient-to-r from-transparent to-white/80 rounded-3xl z-0"></div>
+                
+                <!-- Main Glass Dashboard Chart -->
+                <div class="absolute top-6 right-6 w-[400px] h-[330px] glass-card rounded-[2rem] p-6 z-10 floating bg-white/40 backdrop-blur-2xl border-white/30 shadow-2xl glow-card">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-semibold text-lg text-gray-800">Course Completion Rate</h3>
+                        <div class="flex gap-1">
+                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                        </div>
+                    </div>
+                    <div class="inline-block px-3 py-1 rounded-full bg-gray-100 text-xs text-gray-600 mb-8">
+                        Monthly
+                    </div>
+                    <!-- Faux Bar Chart -->
+                    <div class="flex items-end gap-3 h-40 mt-4 relative">
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[30%] relative group"></div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[40%] relative group"></div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[60%] relative group"></div>
+                        <div class="w-full bg-purple-500 rounded-t-lg h-[90%] relative group">
+                            <!-- Tooltip -->
+                            <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs py-1 px-2 rounded-lg opacity-100 whitespace-nowrap">
+                                85% Rate
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[50%] relative group"></div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[70%] relative group"></div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[45%] relative group"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-400 mt-2 px-1">
+                        <span class="">Jan</span><span class="">Feb</span><span class="">Mar</span><span class="text-purple-600 font-bold">Apr</span><span class="">May</span><span class="">Jun</span><span class="">Jul</span>
+                    </div>
+                </div>
+                <!-- Floating Top Student Card -->
+                <div class="absolute top-32 left-[-10px] w-60 glass-card rounded-2xl p-4 z-20 flex items-center justify-between shadow-2xl floating-delayed bg-white/40 backdrop-blur-2xl border-white/30 glow-card">
+                    <div class="flex items-center gap-3">
+                        <img alt="Profile" class="w-10 h-10 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQL8COUeTqfwL5EA1m5BsFis2WcQtpS_kMb5oRlV4DW5sZDrS3HIJ0S9KowYdgyHM3yok_FfJ1G8s2m299Q-na-RdFFjMeJpEQmENYdnpar2C47s0GAEv_V7-BrtvQy2RT4x6zdQHHFYjP0bkNqeHBUpJlKtfVtuaTMr0lsi7W0RmnFdbonsWLoz-eQDgKw6Dj7foeEvtqRrn7rH11wEnmca8WQFF239OsHaj3tbX0tmADE0xgAliRVFQb_Zstyiu5-QJslLzc1UM">
+                        <div>
+                            <div class="text-xs text-purple-600 font-semibold uppercase">Top Student</div>
+                            <div class="font-bold text-gray-800">Sarah Jenkins</div>
+                        </div>
+                    </div>
+                    <button class="px-3 py-1 bg-white rounded-full text-xs font-semibold text-purple-600 shadow-sm border border-gray-100 hover:scale-105 transition-transform">View</button>
+                </div>
+                <!-- Floating Balance Card with Radial Loading SVG -->
+                <div class="absolute bottom-10 left-10 w-76 glass-card rounded-3xl p-6 z-20 shadow-2xl floating bg-white/40 backdrop-blur-2xl border-white/30 glow-card counter-trigger">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Learning Score</div>
+                            <div class="text-3xl font-bold text-gray-900"><span class="counter-stat" data-target="92">0</span>/100</div>
+                            <div class="text-sm text-gray-500 mt-2">Top 5% of class</div>
+                        </div>
+                        <div class="relative w-20 h-20 flex items-center justify-center">
+                            <svg class="w-full h-full transform -rotate-90">
+                                <!-- Background track -->
+                                <circle cx="40" cy="40" r="32" stroke="rgba(229, 231, 235, 0.8)" stroke-width="6" fill="transparent" />
+                                <!-- Active loading bar. Stroke Dasharray for 32 radius is 201.06 (2 * PI * r) -->
+                                <circle cx="40" cy="40" r="32" stroke="url(#radialPurpleGrad)" stroke-width="6" fill="transparent"
+                                        stroke-dasharray="201.06" stroke-dashoffset="201.06" 
+                                        class="radial-progress-bar transition-all duration-[1.5s] ease-out" 
+                                        data-offset-target="201.06" data-target-percentage="92" />
+                                <defs>
+                                    <linearGradient id="radialPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#a855f7" />
+                                        <stop offset="100%" stop-color="#6366f1" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <span class="absolute text-sm font-extrabold text-purple-700">92%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- END: Hero Section -->
+
+<!-- BEGIN: Logo Cloud -->
+<section class="border-y border-gray-100 bg-white/50 py-10 relative z-10 reveal-scale">
+    <div class="container mx-auto px-6 overflow-hidden">
+        <div class="flex items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 flex-wrap lg:flex-nowrap justify-center">
+            <div class="logo-item flex items-center gap-2 font-bold text-xl text-gray-400 hover:scale-110 transition-transform cursor-pointer" style="transition-delay: 50ms"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"></path></svg> Catalog</div>
+            <div class="logo-item flex items-center gap-2 font-bold text-xl text-gray-400 hover:scale-110 transition-transform cursor-pointer" style="transition-delay: 150ms"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg> Capsule</div>
+            <div class="logo-item flex items-center gap-2 font-bold text-xl text-gray-400 hover:scale-110 transition-transform cursor-pointer" style="transition-delay: 250ms"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect></svg> Biosynthesis</div>
+            <div class="logo-item flex items-center gap-2 font-bold text-xl text-gray-400 hover:scale-110 transition-transform cursor-pointer" style="transition-delay: 350ms"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Epicurious</div>
+            <div class="logo-item flex items-center gap-2 font-bold text-xl text-gray-400 hover:scale-110 transition-transform cursor-pointer" style="transition-delay: 450ms"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path></svg> Interlock</div>
+            <div class="logo-item flex items-center gap-2 font-bold text-xl text-gray-400 hover:scale-110 transition-transform cursor-pointer" style="transition-delay: 550ms"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg> Nietzsche</div>
+        </div>
+    </div>
+</section>
+<!-- END: Logo Cloud -->
+
+<!-- BEGIN: Features Section -->
+<section class="container mx-auto px-6 py-12 md:py-24 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 text-purple-700 text-xs font-bold tracking-wide uppercase mb-6 border border-purple-100">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            FEATURES
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Let's know our cool feature</h2>
+        <p class="text-lg text-gray-500">Most popular choice for taking control of your learning journey and optimizing career outcomes.</p>
+    </div>
+    <!-- Feature Cards -->
+    <div class="grid md:grid-cols-2 gap-8">
+        <!-- Feature 1: Instant Assessment -->
+        <div class="bg-gray-50/80 rounded-[2.5rem] p-10 lg:p-14 border border-gray-100 flex flex-col items-center text-center overflow-hidden relative group bg-white/40 backdrop-blur-2xl border-white/20 shadow-xl reveal-left glow-card counter-trigger">
+            <div class="w-full text-left mb-10">
+                <h3 class="text-3xl font-bold text-gray-900 mb-3">Instant Skill Assessment</h3>
+                <p class="text-gray-500 text-lg">Most popular choice for taking control of your learning journey and track progress</p>
+            </div>
+            <!-- Mockup Graphic -->
+            <div class="w-full max-w-sm bg-white rounded-3xl shadow-xl p-6 border border-gray-100 transform group-hover:-translate-y-2 transition-all duration-500 bg-white/50 backdrop-blur-xl border-white/30">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-sm font-medium text-gray-500">Total Score</span>
+                    <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+                </div>
+                <div class="text-left mb-8">
+                    <div class="text-4xl font-bold text-gray-900"><span class="counter-stat" data-target="85">0</span>.<span class="counter-stat" data-target="4">0</span>%</div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-3 rounded-2xl bg-gray-50">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-red-100 text-red-500 flex items-center justify-center font-bold">M</div>
+                            <div class="text-left">
+                                <div class="font-bold text-gray-900 text-sm">MM Module</div>
+                                <div class="text-xs text-gray-500">Assessment</div>
+                            </div>
+                        </div>
+                        <div class="text-red-500 font-bold text-sm">-12.00</div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-2xl bg-gray-50">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-500 flex items-center justify-center font-bold">F</div>
+                            <div class="text-left">
+                                <div class="font-bold text-gray-900 text-sm">FICO Module</div>
+                                <div class="text-xs text-gray-500">Project</div>
+                            </div>
+                        </div>
+                        <div class="text-green-500 font-bold text-sm">+94.20</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature 2: Analytics -->
+        <div class="bg-gray-50/80 rounded-[2.5rem] p-10 lg:p-14 border border-gray-100 flex flex-col items-center text-center overflow-hidden relative group bg-white/40 backdrop-blur-2xl border-white/20 shadow-xl reveal-right glow-card counter-trigger">
+            <div class="w-full text-left mb-10">
+                <h3 class="text-3xl font-bold text-gray-900 mb-3">Advanced Career Analytics</h3>
+                <p class="text-gray-500 text-lg">Most popular choice for taking control of your personal finances and investments and save more money</p>
+            </div>
+            <!-- Mockup Graphic -->
+            <div class="w-full max-w-sm mt-auto relative transform group-hover:-translate-y-2 transition-all duration-500">
+                <!-- Floating Badge -->
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 z-20 gradient-bg text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 w-max">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    </div>
+                    <div class="text-left">
+                        <div class="font-bold text-sm"><span class="counter-stat" data-target="20">0</span> Interviews</div>
+                        <div class="text-xs text-white/80">Monday, April 22nd</div>
+                    </div>
+                </div>
+                <!-- Chart Abstract -->
+                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 pt-16 bg-white/50 backdrop-blur-xl border-white/30">
+                    <div class="h-32 w-full relative">
+                        <!-- SVG Path for Line Chart -->
+                        <svg class="w-full h-full overflow-visible z-10 relative" viewBox="0 0 100 40">
+                            <path d="M0,20 Q10,5 20,25 T40,15 T60,30 T80,10 T100,20" fill="none" stroke="#a855f7" stroke-width="2"></path>
+                            <circle cx="0" cy="20" fill="#a855f7" r="2"></circle>
+                            <circle cx="20" cy="25" fill="#a855f7" r="2"></circle>
+                            <circle cx="40" cy="15" fill="#a855f7" r="2"></circle>
+                            <circle cx="60" cy="30" fill="#a855f7" r="2"></circle>
+                            <circle cx="80" cy="10" fill="#a855f7" r="4" stroke="white" stroke-width="2"></circle>
+                            <circle cx="100" cy="20" fill="#a855f7" r="2"></circle>
+                        </svg>
+                        <!-- Vertical Bars Background -->
+                        <div class="absolute inset-0 flex justify-between px-2">
+                            <div class="w-1 h-full bg-gray-100 rounded-full"></div>
+                            <div class="w-1 h-full bg-gray-100 rounded-full"></div>
+                            <div class="w-1 h-full bg-gray-100 rounded-full"></div>
+                            <div class="w-1 h-full bg-purple-100 rounded-full relative">
+                                <div class="absolute bottom-0 w-full bg-purple-500 rounded-full h-3/4"></div>
+                            </div>
+                            <div class="w-1 h-full bg-gray-100 rounded-full"></div>
+                            <div class="w-1 h-full bg-gray-100 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: Features Section -->
+
+<!-- BEGIN: Curriculum Overview Section (from 01.html) -->
+<section class="container mx-auto px-6 py-12 md:py-24 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 text-purple-700 text-xs font-bold tracking-wide uppercase mb-6 border border-purple-100">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
+            </svg>
+            WHAT YOU'LL LEARN
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Master Industry-Leading SAP Modules</h2>
+        <p class="text-lg text-gray-500">Comprehensive curriculum designed to make you job-ready from day one.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- S/4HANA Finance -->
+        <div class="bg-white/40 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition-transform duration-300 reveal-on-scroll glow-card" style="transition-delay: 50ms">
+            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">S/4HANA Finance</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Master the core of modern enterprise finance, including general ledger, accounts payable/receivable, and asset accounting.</p>
+        </div>
+        <!-- SAP MM -->
+        <div class="bg-white/40 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition-transform duration-300 reveal-on-scroll glow-card" style="transition-delay: 150ms">
+            <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Materials Management (MM)</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Learn procurement processes, inventory management, and material valuation for efficient supply chain operations.</p>
+        </div>
+        <!-- SAP SD -->
+        <div class="bg-white/40 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition-transform duration-300 reveal-on-scroll glow-card" style="transition-delay: 250ms">
+            <div class="w-14 h-14 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Sales and Distribution (SD)</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Dive into the order-to-cash process, pricing, shipping, and billing to optimize customer satisfaction.</p>
+        </div>
+        <!-- SAP ABAP -->
+        <div class="bg-white/40 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition-transform duration-300 reveal-on-scroll glow-card" style="transition-delay: 350ms">
+            <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">ABAP Development</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Build custom solutions and enhancements using SAP's proprietary programming language.</p>
+        </div>
+    </div>
+</section>
+<!-- END: Curriculum Overview Section -->
+
+<!-- BEGIN: Learning Roadmap Section (from 01.html) -->
+<section class="container mx-auto px-6 py-12 md:py-24 relative z-10">
+    <div class="blob-organic-1 top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="text-center max-w-2xl mx-auto mb-20 reveal-on-scroll">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 text-purple-700 text-xs font-bold tracking-wide uppercase mb-6 border border-purple-100">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+            ROADMAP
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Your Journey to Success</h2>
+        <p class="text-lg text-gray-500">A clear, step-by-step path to becoming a certified SAP professional.</p>
+    </div>
+    <div class="relative max-w-5xl mx-auto reveal-scale">
+        <!-- Curved Connecting Line -->
+        <svg class="hidden md:block absolute top-0 left-0 w-full h-full z-0 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 150 150 C 350 50, 650 250, 850 150" fill="none" stroke="rgba(168, 85, 247, 0.2)" stroke-dasharray="10 10" stroke-width="4"></path>
+        </svg>
+        <div class="grid md:grid-cols-3 gap-12 relative z-10 pt-12 md:pt-0">
+            <!-- Step 1 -->
+            <div class="glass-organic p-8 rounded-[2rem] md:rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] hover:rounded-[30%_70%_50%_50%_/_50%_40%_60%_50%] transition-all duration-500 text-center shadow-xl hover:-translate-y-2 md:mt-24 md:mr-8 bg-white/40 glow-card reveal-on-scroll" style="transition-delay: 50ms">
+                <div class="w-20 h-20 rounded-full gradient-bg text-white flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/30 text-3xl font-bold border-4 border-white">1</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Foundations</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Master the core concepts and basic navigation of the SAP ecosystem.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="glass-organic p-8 rounded-3xl md:rounded-[2rem] text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 md:mb-24 bg-white/50 border-t-4 border-t-purple-400 glow-card reveal-on-scroll" style="transition-delay: 150ms">
+                <div class="w-16 h-16 rounded-xl gradient-bg text-white flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/30 text-2xl font-bold rotate-12 hover:rotate-0 transition-transform">2</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Certification</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Deep dive into your chosen module and pass the official SAP exams.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="glass-organic p-8 rounded-[3rem] text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 md:mt-16 md:ml-8 bg-white/40 glow-card reveal-on-scroll" style="transition-delay: 250ms">
+                <div class="w-20 h-20 rounded-full bg-white text-purple-600 flex items-center justify-center mx-auto mb-6 shadow-lg text-3xl font-bold border-4 border-purple-100 relative">
+                    <span class="absolute inset-0 rounded-full border border-purple-500 animate-ping opacity-20"></span>
+                    3
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Job Placement</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Resume building, interview prep, and placement with our hiring partners.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: Learning Roadmap Section -->
+
+<!-- BEGIN: Expert Mentors Section (from 01.html) -->
+<section class="container mx-auto px-6 py-12 md:py-24 relative z-10 bg-gradient-to-br from-gray-50/80 to-purple-50/30 rounded-[3rem] my-12 backdrop-blur-md border border-white/60 shadow-[0_0_40px_rgba(76,29,149,0.05)] overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-200/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-indigo-200/40 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-100/50 text-purple-700 text-xs font-bold tracking-wide uppercase mb-6 border border-purple-200/50 backdrop-blur-sm">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path></svg>
+            EXPERT MENTORS
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Learn from Industry Leaders</h2>
+        <p class="text-lg text-gray-500">Get guided by professionals with decades of real-world SAP experience.</p>
+    </div>
+    <div class="grid md:grid-cols-12 gap-6 relative z-10">
+        <!-- Mentor 1 (Featured - Bento Large) -->
+        <div class="md:col-span-8 bg-white/70 backdrop-blur-2xl border border-white/50 rounded-[2.5rem] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 reveal-left flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group glow-card" style="transition-delay: 50ms">
+            <div class="absolute -right-12 -top-12 w-48 h-48 bg-purple-100 rounded-full blur-2xl group-hover:bg-purple-200 transition-colors duration-500"></div>
+            <div class="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
+                <div class="absolute inset-0 bg-gradient-to-tr from-purple-500 to-indigo-400 rounded-[2rem] rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
+                <img alt="Arjun Mehta" class="absolute inset-0 w-full h-full object-cover rounded-[2rem] border-4 border-white shadow-md z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV8jWOsj2X-NspLx27buT2Webz8iHZzIn0KPXV3GCTUZl1gvPHwug_-bHyxmpQ5CPr7982hxJ1E8ZOAsrLYRVrip7RFj-W8ECgXB74eCP6vKtL8DmuypQm_zASIaygOUm4WUx8sRJHoxuzlhq5TK8I7HRzOKzr_2ilj8FSNX_8EsMCUcog0H_Uq5awo1z-alpBq4NK8a5AS8EEew5EFUfbYfmT6feLGOlYmj-aoKiCNlv7RDpADov6fDxIeTu5c5KhAxBAgoMiNxo"/>
+            </div>
+            <div class="flex-1 text-center md:text-left relative z-20">
+                <h3 class="text-3xl font-bold text-gray-900 mb-2">Arjun Mehta</h3>
+                <p class="text-purple-600 font-semibold text-sm mb-4 tracking-wide uppercase">Senior FICO Consultant</p>
+                <p class="text-gray-600 mb-6 leading-relaxed">"My goal is to bridge the gap between theoretical knowledge and practical SAP implementation. Over 12 years at Deloitte has taught me what top firms really look for."</p>
+                <a class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-gray-900 px-5 py-2.5 rounded-full hover:bg-purple-600 transition-colors shadow-md btn-hover-glow" href="#">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+        <!-- Mentor 2 (Bento Small Vertical) -->
+        <div class="md:col-span-4 bg-white/60 backdrop-blur-xl border border-white/40 rounded-[2.5rem] p-6 shadow-lg hover:-translate-y-2 transition-all duration-300 reveal-right flex flex-col items-center justify-center text-center relative overflow-hidden group glow-card" style="transition-delay: 150ms">
+            <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-blue-100 rounded-full blur-xl"></div>
+            <div class="relative w-24 h-24 mb-6">
+                <div class="absolute inset-0 bg-blue-200 rounded-full -translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300"></div>
+                <img alt="Sonal Kapoor" class="relative w-24 h-24 rounded-full border-4 border-white shadow-md z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeDCtrvVPaxINqrOUCe_s_OpIaiG6hTZ6Ah8dglz9i73SyeySk8Zld45u9KyDjOf7gPI_DdnkztA66CLgfXTePzmZOBGf8myBJBpTOG9SJMyfQytGTCcK-HPfp4z3JIgkcaDo0GaZq1suWDjY3Ow1rCCnsSIWu7ozngOrHL-v6g8gKps7l0H0WBieafRqGhyTjTZ7iMuVanTS62WX-T9-iCi-0BwPVdVFeK5oglwfAOm12S7pK2ROoA50jzaYWvdUrrye1XrtZdgo"/>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Sonal Kapoor</h3>
+            <p class="text-blue-600 font-medium text-xs mb-2 uppercase tracking-wider">Supply Chain Expert</p>
+            <p class="text-gray-500 text-sm mb-4">Lead MM Architect at IBM</p>
+            <a class="inline-flex items-center gap-2 text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full hover:bg-blue-100 transition-colors w-full justify-center btn-hover-glow" href="#">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                Profile
+            </a>
+        </div>
+        <!-- Mentor 3 (Bento Horizontal Strip) -->
+        <div class="md:col-span-12 bg-white/50 backdrop-blur-xl border border-white/40 rounded-[2rem] p-6 sm:p-4 shadow-md hover:shadow-lg transition-all duration-300 reveal-on-scroll flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left glow-card" style="transition-delay: 250ms">
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <img alt="David Chen" class="w-16 h-16 rounded-full border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEro5iSj2OO0O9SK7MILSqXyfbdHqTC5IcG2a40un7jC9jnMLCY-7qrrb2mQpD9jEGi7IC-lvP-W1EBgM2ItIDqythG9Z4hSf1ihfv4ebiHk0CP34RaIMRP9i_UrpJSaY9xdSRQUpUHPoArRSEkSBXi_inLMyjb0kjwqZuvzUqW_rLb2MtNJx6X9uSEP6FkWb-yspTDkAOXupauVsDhRvqJ4wo3C3pdOZMQckb0F9enasFEq-OLu3hJoaUPm2GtFC2IBZKippEc6o"/>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 leading-tight">David Chen</h3>
+                    <p class="text-gray-500 text-xs">Technical Director at Capgemini • ABAP Lead</p>
+                </div>
+            </div>
+            <a class="w-10 h-10 rounded-full bg-gray-100 hover:bg-purple-100 hover:text-purple-600 transition-colors text-gray-400 btn-hover-glow flex items-center justify-center" href="#">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- END: Expert Mentors Section -->
+
+<!-- BEGIN: Pricing Section (from 03.html) -->
+<section class="container mx-auto px-6 py-12 md:py-24 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 text-purple-700 text-xs font-bold tracking-wide uppercase mb-6 border border-purple-100">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path>
+                <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.311c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.311c-.563-.649-1.413-1.076-2.354-1.253V5z" fill-rule="evenodd"></path>
+            </svg>
+            PRICING
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Investment in Your Future</h2>
+        <p class="text-lg text-gray-500">Choose the plan that best fits your learning style and career goals.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 items-center">
+        <!-- Starter Plan -->
+        <div class="bg-white/40 backdrop-blur-2xl border border-gray-100 p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition-transform duration-300 reveal-on-scroll glow-card" style="transition-delay: 50ms">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Starter</h3>
+            <p class="text-gray-500 text-sm mb-6">Self-paced learning</p>
+            <div class="text-4xl font-bold text-gray-900 mb-8">$49<span class="text-lg text-gray-500 font-normal">/mo</span></div>
+            <ul class="space-y-4 mb-8">
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Access to all basic modules
+                </li>
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Community forum access
+                </li>
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Basic career guidance
+                </li>
+            </ul>
+            <a class="block w-full py-3 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium text-center rounded-xl transition-colors btn-hover-glow" href="#">Get Started</a>
+        </div>
+        <!-- Professional Plan (Highlighted) -->
+        <div class="bg-gradient-to-b from-purple-600 to-indigo-600 p-8 rounded-[2.5rem] shadow-2xl relative transform md:-translate-y-4 reveal-on-scroll" style="transition-delay: 150ms">
+            <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2">
+                <span class="bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Popular</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Professional</h3>
+            <p class="text-purple-200 text-sm mb-6">Live sessions &amp; Mentorship</p>
+            <div class="text-4xl font-bold text-white mb-8">$199<span class="text-lg text-purple-200 font-normal">/mo</span></div>
+            <ul class="space-y-4 mb-8">
+                <li class="flex items-center gap-3 text-sm text-white">
+                    <svg class="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Everything in Starter
+                </li>
+                <li class="flex items-center gap-3 text-sm text-white">
+                    <svg class="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Weekly live masterclasses
+                </li>
+                <li class="flex items-center gap-3 text-sm text-white">
+                    <svg class="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    1-on-1 mentorship sessions
+                </li>
+                <li class="flex items-center gap-3 text-sm text-white">
+                    <svg class="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Guaranteed placement assistance
+                </li>
+            </ul>
+            <a class="block w-full py-3 px-4 bg-white text-purple-600 font-bold text-center rounded-xl transition-transform hover:scale-105 mb-3 shadow-lg btn-hover-glow" href="#">Enroll Now</a>
+            <a class="block w-full py-2 px-4 bg-transparent border border-purple-300 text-white font-medium text-center text-sm rounded-xl transition-colors hover:bg-white/10" href="#">Apply for Scholarship</a>
+        </div>
+        <!-- Enterprise Plan -->
+        <div class="bg-white/40 backdrop-blur-2xl border border-gray-100 p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition-transform duration-300 reveal-on-scroll glow-card" style="transition-delay: 250ms">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Enterprise</h3>
+            <p class="text-gray-500 text-sm mb-6">Corporate training</p>
+            <div class="text-4xl font-bold text-gray-900 mb-8">Custom</div>
+            <ul class="space-y-4 mb-8">
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Custom curriculum design
+                </li>
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Dedicated account manager
+                </li>
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Team analytics dashboard
+                </li>
+            </ul>
+            <a class="block w-full py-3 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium text-center rounded-xl transition-colors btn-hover-glow" href="#">Contact Sales</a>
+        </div>
+    </div>
+</section>
+<!-- END: Pricing Section -->
+
+<!-- BEGIN: Testimonials Section -->
+<section class="bg-[#111111] py-12 md:py-24 mt-12 relative z-10">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div class="max-w-xl reveal-left">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Loved by thousands<br>of users worldwide</h2>
+                <p class="text-gray-400">See what our community has to say about their journey.</p>
+            </div>
+            <div class="flex gap-4">
+                <button class="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-white hover:bg-gray-800 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </button>
+                <button class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-white hover:opacity-90 transition-opacity btn-hover-glow">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Testimonial Cards Grid -->
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-gray-800 flex flex-col justify-between reveal-on-scroll" style="transition-delay: 50ms">
+                <div>
+                    <div class="flex text-yellow-500 mb-6 gap-1">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-300 mb-8 leading-relaxed">"Enlightlead has completely transformed how I manage my SAP learning. The insights are incredible and the interface is simply beautiful."</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <img alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzgygVmFmh8TXzOk8X5po5jOmYBTqT3EyJJS4dH9ZZpoWbDyGlHPo84m4klf7aK_HWy9TnecYLvM2zV1ymtscXDA0kdNbJQfTvTtunuDle-p7n0_758BRB6mUv1SVZOyiqzyNtFl88_ccH3DiZG2Zel487HkXjgv8IqeQ32rwpspGVX1XneXT2FQ9Jtb9UxdJDf-hNgibkfVz1R2o2iDR9TGTeu6oXJuw4iUnsYhxHZZwv7KWyEtaEWERMIB_OBDWGS9ShcF2Nhrg">
+                    <div>
+                        <div class="font-bold text-white">Sarah Johnson</div>
+                        <div class="text-sm text-gray-500">SAP Consultant</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-gray-800 flex flex-col justify-between transform md:-translate-y-4 reveal-on-scroll" style="transition-delay: 150ms">
+                <div>
+                    <div class="flex text-yellow-500 mb-6 gap-1">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-300 mb-8 leading-relaxed">"I've tried many training apps, but none come close to the ease of use and powerful analytics that Enlightlead provides."</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <img alt="Michael Chen" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbiEkfJvaH_wkJpP6bBsQyey49CFhHnDji1zo6z6K5REOwk5oU-XrkbcxcGrZqmpti19U_35U45mk9C4hiseJzm_aHoyJjSFEUx4rzNzhM_v41w7kEfpUyeo49mVpYR2qq4BuAi639YD1EF4RrE_5RxGgBgPUWwpbZdt61zSYgvGCPi1DpO45GWnpSiupzR02ctmWhU8CJrxMg19ucj6KMivnuoqb7DwvZKsPlGz7QotBk2lJBjqCGCq36uZMpWW-nFoFj1WaPZC0">
+                    <div>
+                        <div class="font-bold text-white">Michael Chen</div>
+                        <div class="text-sm text-gray-500">Project Manager</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-gray-800 flex flex-col justify-between reveal-on-scroll" style="transition-delay: 250ms">
+                <div>
+                    <div class="flex text-yellow-500 mb-6 gap-1">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-300 mb-8 leading-relaxed">"The instant notifications and learning paths tools helped me get certified in just 6 months. Highly recommended!"</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <img alt="Emma Wilson" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsp229MJgpoOZd96V_85b6Fv7zufqVkSOgBGLCQCUj2bVSxTQ3uknw893z9NXes7XG-anUWYtQF1HcUtAcHe2MLI1s3nqj_6MgxQZV-F4uGsQNC5hb49k0a3BWMgQCYxNB9xjYmgOVwtwKXJvppTIt9Ig5qCp49_EBXdP2gpMjOgoTVZ64KvNRSjG39AaIxTErrpOlOUf8CmBmj0rTDvXCRewkFTpf8CVBhyVObyJone6mLSMXvOFUbJ56g0l_v-JUPAnr-5DVOt4">
+                    <div>
+                        <div class="font-bold text-white">Emma Wilson</div>
+                        <div class="text-sm text-gray-500">Business Analyst</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: Testimonials Section -->
+
+<!-- BEGIN: FAQ Section (from 03.html, completed and expanded) -->
+<section class="container mx-auto px-6 py-12 md:py-24 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4 tracking-tight">Frequently Asked Questions</h2>
+        <p class="text-lg text-gray-500">Everything you need to know about our SAP training programs.</p>
+    </div>
+    <div class="max-w-3xl mx-auto space-y-4 reveal-on-scroll delay-100">
+        <!-- FAQ Item 1 -->
+        <details class="group bg-white/40 backdrop-blur-2xl border border-gray-100 rounded-2xl shadow-sm open:shadow-md transition-all duration-300 reveal-on-scroll" style="transition-delay: 50ms">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-gray-900">
+                <span>Do I need prior technical experience?</span>
+                <span class="transition group-open:rotate-180">
+                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+            </summary>
+            <div class="text-gray-500 px-6 pb-6 mt-2 leading-relaxed">
+                While a basic understanding of business processes is helpful, our curriculum is designed to take you from a beginner to an advanced level. We provide foundational modules for those completely new to SAP.
+            </div>
+        </details>
+        <!-- FAQ Item 2 -->
+        <details class="group bg-white/40 backdrop-blur-2xl border border-gray-100 rounded-2xl shadow-sm open:shadow-md transition-all duration-300 reveal-on-scroll" style="transition-delay: 150ms">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-gray-900">
+                <span>Does Enlightlead offer job placement assistance?</span>
+                <span class="transition group-open:rotate-180">
+                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+            </summary>
+            <div class="text-gray-500 px-6 pb-6 mt-2 leading-relaxed">
+                Yes! Our Professional tier includes guaranteed placement assistance. We help with resume building, mock interviews, and connect you with our network of hiring partners in the global tech and consulting industries.
+            </div>
+        </details>
+        <!-- FAQ Item 3 -->
+        <details class="group bg-white/40 backdrop-blur-2xl border border-gray-100 rounded-2xl shadow-sm open:shadow-md transition-all duration-300 reveal-on-scroll" style="transition-delay: 250ms">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-gray-900">
+                <span>How long does it take to get certified?</span>
+                <span class="transition group-open:rotate-180">
+                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+            </summary>
+            <div class="text-gray-500 px-6 pb-6 mt-2 leading-relaxed">
+                Typically, students complete their training and feel ready to sit for their SAP certification exams within 3 to 6 months of active study, depending on the module.
+            </div>
+        </details>
+        <!-- FAQ Item 4 -->
+        <details class="group bg-white/40 backdrop-blur-2xl border border-gray-100 rounded-2xl shadow-sm open:shadow-md transition-all duration-300 reveal-on-scroll" style="transition-delay: 350ms">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-gray-900">
+                <span>Are the study materials updated for S/4HANA?</span>
+                <span class="transition group-open:rotate-180">
+                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+            </summary>
+            <div class="text-gray-500 px-6 pb-6 mt-2 leading-relaxed">
+                Absolutely. All our course materials, sandbox access, and hands-on exercises are built on the latest SAP S/4HANA platform to ensure you learn the most current technology.
+            </div>
+        </details>
+    </div>
+</section>
+<!-- END: FAQ Section -->
+
+<!-- BEGIN: Footer CTA & Footer (from 04.html) -->
+<footer class="bg-white relative z-10 pt-20 reveal-on-scroll">
+    <div class="container mx-auto px-6">
+        <!-- Big CTA Card -->
+        <div class="gradient-bg rounded-[3rem] px-6 py-12 sm:p-16 text-center text-white mb-20 relative overflow-hidden shadow-2xl shadow-purple-500/20">
+            <!-- Abstract Background Elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 relative z-10 tracking-tight">Ready to start your learning<br>journey?</h2>
+            <p class="text-white/80 text-lg mb-10 relative z-10">Join over 1 million users who trust Enlightlead to manage their career better.</p>
+            <div class="flex flex-wrap justify-center gap-4 relative z-10">
+                <button class="px-8 py-4 bg-white text-purple-700 font-bold rounded-full hover:bg-gray-50 transition-colors shadow-lg btn-hover-glow">Get Started Now</button>
+                <button class="px-8 py-4 bg-transparent border border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition-colors btn-hover-glow">Download App</button>
+            </div>
+        </div>
+        <!-- Footer Links -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-16 border-b border-gray-100">
+            <div class="col-span-2 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-white font-bold text-xl">
+                            E
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-gray-900">Enlightlead</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-6 max-w-sm leading-relaxed">
+                        Making SAP education accessible to everyone through smart technology and intuitive design.
+                    </p>
+                </div>
+                <div class="flex gap-4 mb-4">
+                    <!-- Social Icons -->
+                    <a class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-purple-600 hover:scale-110 transition-all" href="#">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+                    </a>
+                    <a class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-purple-600 hover:scale-110 transition-all" href="#">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </a>
+                    <a class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-purple-600 hover:scale-110 transition-all" href="#">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-900 mb-6">Product</h4>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Features</a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Pricing</a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Security</a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Business</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-900 mb-6">Company</h4>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">About Us</a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors flex items-center gap-2" href="#">Careers <span class="text-[10px] bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full font-bold animate-pulse">Hiring</span></a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Blog</a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-900 mb-6">Support</h4>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Help Center</a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Terms of Service</a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Privacy Policy</a></li>
+                    <li class=""><a class="hover:text-purple-600 transition-colors" href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+            <p class="">© 2024 Enlightlead Inc. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="hover:text-gray-600 transition-colors" href="#">Privacy</a>
+                <a class="hover:text-gray-600 transition-colors" href="#">Terms</a>
+                <a class="hover:text-gray-600 transition-colors" href="#">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END: Footer CTA & Footer -->
+
+<!-- BEGIN: Animation Scripts -->
+<script src="script.js"></script>
+<!-- END: Animation Scripts -->
+
+</body>
+</html>
