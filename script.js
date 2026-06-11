@@ -156,3 +156,276 @@ if (menuBtn && mobileMenu) {
         }
     });
 }
+
+// 7. Interactive Career Analytics Tab Switcher
+const careerData = {
+    fico: {
+        path: "M 0 32 L 20 27 L 40 21 L 60 14 L 80 8 L 100 3",
+        dots: [32, 27, 21, 14, 8, 3],
+        salary: 165000,
+        interviews: 24,
+        date: "Monday, April 22nd"
+    },
+    mm: {
+        path: "M 0 34 L 20 29 L 40 23 L 60 17 L 80 12 L 100 6",
+        dots: [34, 29, 23, 17, 12, 6],
+        salary: 148000,
+        interviews: 18,
+        date: "Wednesday, April 24th"
+    },
+    sd: {
+        path: "M 0 33 L 20 28 L 40 22 L 60 15 L 80 10 L 100 4",
+        dots: [33, 28, 22, 15, 10, 4],
+        salary: 158000,
+        interviews: 21,
+        date: "Friday, April 26th"
+    }
+};
+
+let currentCareerTab = 'fico';
+
+function animateValue(element, start, end, duration, formatFn) {
+    let startTime = null;
+    function step(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        const current = Math.floor(start + (end - start) * ease);
+        element.textContent = formatFn ? formatFn(current) : current;
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            element.textContent = formatFn ? formatFn(end) : end;
+        }
+    }
+    requestAnimationFrame(step);
+}
+
+function switchCareerTab(tabKey) {
+    if (currentCareerTab === tabKey) return;
+    const data = careerData[tabKey];
+    if (!data) return;
+
+    // Toggle button active states
+    const btnFico = document.getElementById('btn-fico');
+    const btnMm = document.getElementById('btn-mm');
+    const btnSd = document.getElementById('btn-sd');
+    const buttons = { fico: btnFico, mm: btnMm, sd: btnSd };
+
+    Object.keys(buttons).forEach(key => {
+        const btn = buttons[key];
+        if (btn) {
+            if (key === tabKey) {
+                btn.className = "flex-1 py-2 px-2 sm:px-4 rounded-xl text-xs font-bold transition-all duration-300 shadow-sm bg-white text-purple-700";
+            } else {
+                btn.className = "flex-1 py-2 px-2 sm:px-4 rounded-xl text-xs font-bold transition-all duration-300 text-gray-500 hover:text-gray-900";
+            }
+        }
+    });
+
+    // Morph SVG line path
+    const pathEl = document.getElementById('career-chart-path');
+    if (pathEl) {
+        pathEl.setAttribute('d', data.path);
+    }
+
+    // Animate SVG dots
+    const dots = document.querySelectorAll('.chart-dot');
+    dots.forEach((dot, index) => {
+        if (data.dots[index] !== undefined) {
+            dot.setAttribute('cy', data.dots[index]);
+        }
+    });
+
+    // Update date
+    const dateEl = document.getElementById('career-stat-date');
+    if (dateEl) {
+        dateEl.textContent = data.date;
+    }
+
+    // Count transitions for salary
+    const salaryEl = document.getElementById('career-stat-salary');
+    if (salaryEl) {
+        const startVal = parseInt(salaryEl.getAttribute('data-val') || '165000');
+        salaryEl.setAttribute('data-val', data.salary);
+        animateValue(salaryEl, startVal, data.salary, 600, val => '₹' + val.toLocaleString('en-IN'));
+    }
+
+    // Count transitions for interviews
+    const interviewsEl = document.getElementById('career-stat-interviews');
+    if (interviewsEl) {
+        const startVal = parseInt(interviewsEl.getAttribute('data-val') || '24');
+        interviewsEl.setAttribute('data-val', data.interviews);
+        animateValue(interviewsEl, startVal, data.interviews, 600);
+    }
+
+    currentCareerTab = tabKey;
+}
+
+// =============================================
+// ENROLLMENT MODAL & WHATSAPP REDIRECT
+// =============================================
+const WHATSAPP_NUMBER = '918220227915';
+
+function openEnrollModal(courseName) {
+    const modal = document.getElementById('enroll-modal');
+    const card = document.getElementById('enroll-modal-card');
+    const courseLabel = document.getElementById('enroll-modal-course');
+    const courseInput = document.getElementById('enroll-course');
+
+    if (!modal || !card) return;
+
+    courseLabel.textContent = courseName;
+    courseInput.value = courseName;
+
+    // Reset form
+    const form = document.getElementById('enroll-form');
+    if (form) form.reset();
+
+    // Show modal
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+
+    // Animate card in
+    requestAnimationFrame(() => {
+        card.classList.remove('scale-95', 'opacity-0');
+        card.classList.add('scale-100', 'opacity-100');
+    });
+}
+
+function closeEnrollModal() {
+    const modal = document.getElementById('enroll-modal');
+    const card = document.getElementById('enroll-modal-card');
+
+    if (!modal || !card) return;
+
+    // Animate card out
+    card.classList.remove('scale-100', 'opacity-100');
+    card.classList.add('scale-95', 'opacity-0');
+
+    setTimeout(() => {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }, 300);
+}
+
+function saveLeadToStorage(leadData) {
+    try {
+        const existingLeads = JSON.parse(localStorage.getItem('enlightlead_leads') || '[]');
+        existingLeads.push(leadData);
+        localStorage.setItem('enlightlead_leads', JSON.stringify(existingLeads));
+    } catch (e) {
+        console.error('Failed to save lead:', e);
+    }
+}
+
+// Bind event listeners on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+    const btnFico = document.getElementById('btn-fico');
+    const btnMm = document.getElementById('btn-mm');
+    const btnSd = document.getElementById('btn-sd');
+
+    if (btnFico) btnFico.addEventListener('click', () => switchCareerTab('fico'));
+    if (btnMm) btnMm.addEventListener('click', () => switchCareerTab('mm'));
+    if (btnSd) btnSd.addEventListener('click', () => switchCareerTab('sd'));
+
+    // =============================================
+    // ENROLLMENT FORM → WHATSAPP REDIRECT
+    // =============================================
+    const enrollForm = document.getElementById('enroll-form');
+    if (enrollForm) {
+        enrollForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('enroll-name').value.trim();
+            const phone = document.getElementById('enroll-phone').value.trim();
+            const email = document.getElementById('enroll-email').value.trim();
+            const course = document.getElementById('enroll-course').value;
+
+            // Save lead to localStorage
+            const leadData = {
+                type: 'enrollment',
+                name,
+                phone: '+91' + phone,
+                email,
+                course,
+                timestamp: new Date().toISOString()
+            };
+            saveLeadToStorage(leadData);
+
+            // Build WhatsApp message
+            const message = `Hi Enlightlead! 👋\n\nI'm interested in the *${course}* course.\n\n📋 My Details:\n• Name: ${name}\n• Phone: +91 ${phone}\n• Email: ${email}\n\nPlease share the course details, upcoming batch schedule, and fee structure. Thank you!`;
+
+            const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+            // Close modal and redirect
+            closeEnrollModal();
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+            }, 350);
+        });
+    }
+
+    // Close modal on backdrop click
+    const enrollModal = document.getElementById('enroll-modal');
+    if (enrollModal) {
+        enrollModal.addEventListener('click', (e) => {
+            if (e.target === enrollModal) {
+                closeEnrollModal();
+            }
+        });
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeEnrollModal();
+        }
+    });
+
+    // =============================================
+    // CONTACT FORM HANDLER (with lead saving)
+    // =============================================
+    const contactForm = document.getElementById('contact-form');
+    const successState = document.getElementById('contact-success');
+    const resetBtn = document.getElementById('btn-contact-reset');
+
+    if (contactForm && successState) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Save contact lead data
+            const formData = new FormData(contactForm);
+            const contactLead = {
+                type: 'contact',
+                name: formData.get('name') || '',
+                email: formData.get('email') || '',
+                phone: formData.get('phone') || '',
+                subject: formData.get('subject') || '',
+                message: formData.get('message') || '',
+                timestamp: new Date().toISOString()
+            };
+            saveLeadToStorage(contactLead);
+
+            // Animate success overlay entrance
+            successState.classList.remove('hidden');
+            setTimeout(() => {
+                successState.classList.remove('scale-95', 'opacity-0');
+                successState.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        });
+    }
+
+    if (resetBtn && contactForm && successState) {
+        resetBtn.addEventListener('click', () => {
+            contactForm.reset();
+            successState.classList.remove('scale-100', 'opacity-100');
+            successState.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                successState.classList.add('hidden');
+            }, 500);
+        });
+    }
+});
