@@ -81,7 +81,7 @@
                 </svg>
                 TAKE CONTROL OF YOUR FUTURE
             </div>
-            <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-gray-900 tracking-tight">
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight mb-6 text-gray-900 tracking-tight">
                 Master SAP.<br>Lead Your<br><span id="typewriter-text" class="typewriter-cursor text-gradient">Career</span>
             </h1>
             <p class="text-lg text-gray-500 mb-10 leading-relaxed pr-8">
@@ -116,48 +116,47 @@
             </div>
         </div>
         <!-- Hero Illustration (Right Panel Reveal + Glassmorphic elements) -->
-        <div class="relative w-full mt-12 lg:mt-0 perspective-1000 reveal-right flex flex-col sm:flex-row lg:block lg:h-[600px] items-center justify-center gap-6">
-            <!-- Abstract vertical lines background (desktop only) -->
-            <div class="hidden lg:block absolute inset-0 right-0 w-3/4 h-full overflow-hidden opacity-50 rounded-3xl" style="background: repeating-linear-gradient(to right, transparent, transparent 10px, #e2e8f0 10px, #e2e8f0 11px);"></div>
-            <div class="hidden lg:block absolute inset-0 right-0 w-3/4 h-full bg-gradient-to-r from-transparent to-white/80 rounded-3xl z-0"></div>
-            
-            <!-- Main Glass Dashboard Chart -->
-            <div class="relative lg:absolute lg:top-6 lg:right-6 w-full max-w-[400px] h-[330px] glass-card rounded-[2rem] p-6 z-10 floating bg-white/40 backdrop-blur-2xl border-white/30 shadow-2xl glow-card">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="font-semibold text-lg text-gray-800">Course Completion Rate</h3>
-                    <div class="flex gap-1">
-                        <span class="w-2 h-2 rounded-full bg-green-400"></span>
-                        <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
-                        <span class="w-2 h-2 rounded-full bg-red-400"></span>
-                    </div>
-                </div>
-                <div class="inline-block px-3 py-1 rounded-full bg-gray-100 text-xs text-gray-600 mb-8">
-                    Monthly
-                </div>
-                <!-- Faux Bar Chart -->
-                <div class="flex items-end gap-3 h-40 mt-4 relative">
-                    <div class="w-full bg-gray-200 rounded-t-lg h-[30%] relative group"></div>
-                    <div class="w-full bg-gray-200 rounded-t-lg h-[40%] relative group"></div>
-                    <div class="w-full bg-gray-200 rounded-t-lg h-[60%] relative group"></div>
-                    <div class="w-full bg-purple-500 rounded-t-lg h-[90%] relative group">
-                        <!-- Tooltip -->
-                        <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs py-1 px-2 rounded-lg opacity-100 whitespace-nowrap">
-                            85% Rate
+        <div class="relative w-full h-[280px] min-[375px]:h-[330px] sm:h-[400px] lg:h-[450px] xl:h-[520px] mt-12 lg:mt-0 perspective-1000 reveal-right">
+            <!-- Scaling wrapper that is absolutely positioned to prevent layout flow expansion -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] scale-[0.55] min-[375px]:scale-[0.65] sm:scale-[0.8] lg:scale-[0.9] xl:scale-100 origin-center transition-transform duration-300">
+                <!-- Abstract vertical lines background -->
+                <div class="absolute inset-0 right-0 w-3/4 h-full overflow-hidden opacity-50 rounded-3xl" style="background: repeating-linear-gradient(to right, transparent, transparent 10px, #e2e8f0 10px, #e2e8f0 11px);"></div>
+                <div class="absolute inset-0 right-0 w-3/4 h-full bg-gradient-to-r from-transparent to-white/80 rounded-3xl z-0"></div>
+                
+                <!-- Main Glass Dashboard Chart -->
+                <div class="absolute top-4 right-4 w-[380px] h-[300px] glass-card rounded-[2rem] p-6 z-10 floating bg-white/40 backdrop-blur-2xl border-white/30 shadow-2xl glow-card">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-semibold text-lg text-gray-800">Course Completion Rate</h3>
+                        <div class="flex gap-1">
+                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
                         </div>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-t-lg h-[50%] relative group"></div>
-                    <div class="w-full bg-gray-200 rounded-t-lg h-[70%] relative group"></div>
-                    <div class="w-full bg-gray-200 rounded-t-lg h-[45%] relative group"></div>
+                    <div class="inline-block px-3 py-1 rounded-full bg-gray-100 text-xs text-gray-600 mb-8">
+                        Monthly
+                    </div>
+                    <!-- Faux Bar Chart -->
+                    <div class="flex items-end gap-3 h-40 mt-4 relative">
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[30%] relative group"></div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[40%] relative group"></div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[60%] relative group"></div>
+                        <div class="w-full bg-purple-500 rounded-t-lg h-[90%] relative group">
+                            <!-- Tooltip -->
+                            <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs py-1 px-2 rounded-lg opacity-100 whitespace-nowrap">
+                                85% Rate
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[50%] relative group"></div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[70%] relative group"></div>
+                        <div class="w-full bg-gray-200 rounded-t-lg h-[45%] relative group"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-400 mt-2 px-1">
+                        <span class="">Jan</span><span class="">Feb</span><span class="">Mar</span><span class="text-purple-600 font-bold">Apr</span><span class="">May</span><span class="">Jun</span><span class="">Jul</span>
+                    </div>
                 </div>
-                <div class="flex justify-between text-xs text-gray-400 mt-2 px-1">
-                    <span class="">Jan</span><span class="">Feb</span><span class="">Mar</span><span class="text-purple-600 font-bold">Apr</span><span class="">May</span><span class="">Jun</span><span class="">Jul</span>
-                </div>
-            </div>
-            
-            <!-- Mobile/Tablet container for floating side cards to stay aligned -->
-            <div class="flex flex-col gap-6 w-full max-w-[400px] sm:max-w-none sm:w-auto lg:contents">
                 <!-- Floating Top Student Card -->
-                <div class="relative lg:absolute lg:top-32 lg:left-[-10px] w-full sm:w-64 glass-card rounded-2xl p-4 z-20 flex items-center justify-between shadow-2xl floating-delayed bg-white/40 backdrop-blur-2xl border-white/30 glow-card">
+                <div class="absolute top-28 left-[-10px] w-56 glass-card rounded-2xl p-4 z-20 flex items-center justify-between shadow-2xl floating-delayed bg-white/40 backdrop-blur-2xl border-white/30 glow-card">
                     <div class="flex items-center gap-3">
                         <img alt="Profile" class="w-10 h-10 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQL8COUeTqfwL5EA1m5BsFis2WcQtpS_kMb5oRlV4DW5sZDrS3HIJ0S9KowYdgyHM3yok_FfJ1G8s2m299Q-na-RdFFjMeJpEQmENYdnpar2C47s0GAEv_V7-BrtvQy2RT4x6zdQHHFYjP0bkNqeHBUpJlKtfVtuaTMr0lsi7W0RmnFdbonsWLoz-eQDgKw6Dj7foeEvtqRrn7rH11wEnmca8WQFF239OsHaj3tbX0tmADE0xgAliRVFQb_Zstyiu5-QJslLzc1UM">
                         <div>
@@ -168,7 +167,7 @@
                     <button class="px-3 py-1 bg-white rounded-full text-xs font-semibold text-purple-600 shadow-sm border border-gray-100 hover:scale-105 transition-transform">View</button>
                 </div>
                 <!-- Floating Balance Card with Radial Loading SVG -->
-                <div class="relative lg:absolute lg:bottom-10 lg:left-10 w-full sm:w-80 glass-card rounded-3xl p-6 z-20 shadow-2xl floating bg-white/40 backdrop-blur-2xl border-white/30 glow-card counter-trigger">
+                <div class="absolute bottom-6 left-6 w-72 glass-card rounded-3xl p-6 z-20 shadow-2xl floating bg-white/40 backdrop-blur-2xl border-white/30 glow-card counter-trigger">
                     <div class="flex items-center justify-between gap-4">
                         <div>
                             <div class="text-xs text-gray-500 mb-1">Learning Score</div>
@@ -487,7 +486,7 @@
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Investment in Your Future</h2>
         <p class="text-lg text-gray-500">Choose the plan that best fits your learning style and career goals.</p>
     </div>
-    <div class="grid md:grid-cols-3 gap-8 items-center">
+    <div class="grid md:grid-cols-3 gap-4 xl:gap-8 items-center">
         <!-- Starter Plan -->
         <div class="bg-white/40 backdrop-blur-2xl border border-gray-100 p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition-transform duration-300 reveal-on-scroll glow-card" style="transition-delay: 50ms">
             <h3 class="text-xl font-bold text-gray-900 mb-2">Starter</h3>
