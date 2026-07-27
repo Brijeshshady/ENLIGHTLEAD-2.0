@@ -428,4 +428,144 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         });
     }
+
+    // =============================================
+    // USER REVIEWS / TESTIMONIALS CAROUSEL & FILTERING
+    // =============================================
+    const reviewTrack = document.getElementById('reviews-track');
+    const prevBtn = document.getElementById('review-prev');
+    const nextBtn = document.getElementById('review-next');
+    const filterBtns = document.querySelectorAll('.review-filter-btn');
+
+    if (reviewTrack) {
+        let currentIndex = 0;
+
+        function getVisibleCardCount() {
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+
+        function updateCarouselPosition() {
+            const visibleCards = Array.from(reviewTrack.querySelectorAll('.review-card')).filter(card => !card.classList.contains('hidden'));
+            const totalVisible = visibleCards.length;
+            const perView = getVisibleCardCount();
+            const maxIndex = Math.max(0, totalVisible - perView);
+
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+            if (currentIndex < 0) currentIndex = 0;
+
+            const cardWidthPercent = 100 / perView;
+            reviewTrack.style.transform = `translateX(-${currentIndex * cardWidthPercent}%)`;
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const visibleCards = Array.from(reviewTrack.querySelectorAll('.review-card')).filter(card => !card.classList.contains('hidden'));
+                const perView = getVisibleCardCount();
+                const maxIndex = Math.max(0, visibleCards.length - perView);
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateCarouselPosition();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                const visibleCards = Array.from(reviewTrack.querySelectorAll('.review-card')).filter(card => !card.classList.contains('hidden'));
+                const perView = getVisibleCardCount();
+                const maxIndex = Math.max(0, visibleCards.length - perView);
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = maxIndex;
+                }
+                updateCarouselPosition();
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-purple-600', 'text-white', 'shadow-md', 'shadow-purple-500/20');
+                    b.classList.add('bg-white/70', 'text-gray-600', 'border', 'border-gray-200');
+                });
+                btn.classList.add('active', 'bg-purple-600', 'text-white', 'shadow-md', 'shadow-purple-500/20');
+                btn.classList.remove('bg-white/70', 'text-gray-600', 'border', 'border-gray-200');
+
+                const filter = btn.getAttribute('data-filter');
+                const cards = reviewTrack.querySelectorAll('.review-card');
+
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                currentIndex = 0;
+                updateCarouselPosition();
+            });
+        });
+
+        window.addEventListener('resize', updateCarouselPosition);
+    }
+
+    // =============================================
+    // CUSTOM GLASSMORPHIC DROPDOWN SELECT HANDLER
+    // =============================================
+    const selectTrigger = document.getElementById('custom-select-trigger');
+    const selectMenu = document.getElementById('custom-select-menu');
+    const selectArrow = document.getElementById('custom-select-arrow');
+    const selectLabel = document.getElementById('custom-select-label');
+    const hiddenInput = document.getElementById('contact-subject');
+    const selectOptions = document.querySelectorAll('.custom-option');
+
+    if (selectTrigger && selectMenu) {
+        selectTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !selectMenu.classList.contains('hidden');
+            if (isOpen) {
+                selectMenu.classList.add('hidden');
+                selectArrow?.classList.remove('rotate-180');
+            } else {
+                selectMenu.classList.remove('hidden');
+                selectArrow?.classList.add('rotate-180');
+            }
+        });
+
+        selectOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const val = opt.getAttribute('data-value');
+                const labelText = opt.querySelector('span')?.textContent || '';
+
+                if (hiddenInput) hiddenInput.value = val;
+                if (selectLabel) selectLabel.textContent = labelText;
+
+                selectOptions.forEach(o => {
+                    o.classList.remove('bg-purple-50', 'text-purple-700');
+                    const check = o.querySelector('.check-icon');
+                    if (check) check.classList.add('hidden');
+                });
+
+                opt.classList.add('bg-purple-50', 'text-purple-700');
+                const activeCheck = opt.querySelector('.check-icon');
+                if (activeCheck) activeCheck.classList.remove('hidden');
+
+                selectMenu.classList.add('hidden');
+                selectArrow?.classList.remove('rotate-180');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            selectMenu.classList.add('hidden');
+            selectArrow?.classList.remove('rotate-180');
+        });
+    }
 });
